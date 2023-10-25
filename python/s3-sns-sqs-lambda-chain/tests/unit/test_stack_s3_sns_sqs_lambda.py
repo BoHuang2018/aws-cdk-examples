@@ -3,7 +3,7 @@ import pathlib
 import aws_cdk as cdk
 import pytest
 
-from s3_sns_sqs_lambda_chain_stack import S3SnsSqsLambdaChainStack # type: ignore
+from s3_sns_sqs_lambda_chain.s3_sns_sqs_lambda_chain_stack import S3SnsSqsLambdaChainStack # type: ignore
 
 
 @pytest.fixture
@@ -72,7 +72,6 @@ def test_outputs_created(template):
       - Lambda Function Name
       - Lambda Function Log Group Name
     """
-    template.has
     template.has_output("UploadFileToS3Example", {})
     template.has_output("UploadSqsQueueUrl", {})
     template.has_output("LambdaFunctionName", {})
